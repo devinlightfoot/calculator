@@ -30,11 +30,22 @@ var nums = numCont.querySelectorAll("button");
 nums.forEach((num) => {
   num.addEventListener("click", (e) => {
     if (op == "") {
-      num1 += e.target.dataset.num;
+      num1 += parseInt(e.target.dataset.num);
       document.getElementById("out").innerHTML = num1;
-    } else {
-      num2 += e.target.dataset.num;
+      console.log(num1);
+      console.log(num2);
+      console.log(op);
+    } else if (op !== "") {
+      num2 += parseInt(e.target.dataset.num);
       document.getElementById("out").innerHTML = num2;
+      console.log(num1);
+      console.log(num2);
+      console.log(op);
+    } else {
+      alert("num listener error");
+      console.log(num1);
+      console.log(num2);
+      console.log(op);
     }
   });
 });
@@ -49,58 +60,21 @@ var enter = document.getElementById("=");
 enter.addEventListener("click", function () {
   num1 = operate(num1, num2, op);
   document.getElementById("out").innerHTML = num1;
-  document.querySelector(".pressed").classList.remove("pressed")
+  op = "";
+  num2 = "";
+  document.querySelector(".pressed").classList.remove("pressed");
+  console.log(num1);
+  console.log(num2);
+  console.log(op);
 });
 var clear = document.getElementById("clear");
 clear.addEventListener("click", (e) => {
   num1 = "";
   num2 = "";
+  op = "";
   document.getElementById("out").innerHTML = num1;
-  document.querySelector(".pressed").classList.remove("pressed")
-});
-window.addEventListener("keydown", (e) => {
-  if (
-    e.target.dataset.num == "1" ||
-    e.target.dataset.num == "2" ||
-    e.target.dataset.num == "3" ||
-    e.target.dataset.num == "4" ||
-    e.target.dataset.num == "5" ||
-    e.target.dataset.num == "6" ||
-    e.target.dataset.num == "7" ||
-    e.target.dataset.num == "8" ||
-    e.target.dataset.num == "9" ||
-    (e.target.dataset.num == "0" && op == "")
-  ) {
-    num1 += e.target.dataset.num;
-    document.getElementById("out").innerHTML = num1;
-    console.log(num1);
-  } else if (
-    e.target.dataset.num == "1" ||
-    e.target.dataset.num == "2" ||
-    e.target.dataset.num == "3" ||
-    e.target.dataset.num == "4" ||
-    e.target.dataset.num == "5" ||
-    e.target.dataset.num == "6" ||
-    e.target.dataset.num == "7" ||
-    e.target.dataset.num == "8" ||
-    e.target.dataset.num == "9" ||
-    e.target.dataset.num == "0" && op !== "") 
-    {
-    num2 += e.target.dataset.num;
-    document.getElementById("out").innerHTML = num2;
-    console.log(num2);
-  }
-  else if(
-    e.target.dataset.op == "+" ||
-    e.target.dataset.op == "-" ||
-    e.target.dataset.op == "/" ||
-    e.target.dataset.op == "*" ||
-    e.target.dataset.op == "^"){
-      op = e.target.dataset.op;
-      e.target.classList.add("pressed");
-    }
-    else if(e.target.dataset.op == "="){
-      document.getElementById("out").innerHTML = operate(num1,num2,op);
-      document.querySelector(".pressed").classList.remove("pressed")
-    }
+  document.querySelector(".pressed").classList.remove("pressed");
+  console.log(num1);
+  console.log(num2);
+  console.log(op);
 });

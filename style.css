@@ -33,9 +33,14 @@ button {
 button:hover {
   background-color: orangered;
 }
-textarea {
+#out {
   font-size: 2.5rem;
   border-radius: 0.5rem;
+  border-color: black;
+  border-style: solid;
+  width: 30vw;
+  height: 10vh;
+  background-color: white;
 }
 input {
   display: inline;
@@ -44,15 +49,11 @@ input {
 #nums {
   display: flex;
   flex-wrap: wrap;
-  border-style: solid;
-  border-color: black;
 }
 #buttons {
   width: 50%;
   position: relative;
   bottom: 10rem;
-  border-style: solid;
-  border-color: black;
 }
 #controls {
   display: flex;
@@ -60,13 +61,6 @@ input {
   position: relative;
   left: 27rem;
   width: 50%;
-}
-input {
-  position: relative;
-  left: 3rem;
-  font-size: 2.5rem;
-  border-radius: 0.5rem;
-  width: 75%;
 }
 .pressed{
     color: orangered;
